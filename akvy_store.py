@@ -275,12 +275,12 @@ def Basket_in():
     view_prod()
     c = 0
     bask = []
-    cus_ch = input('\nEnter preffered Product ID: ')
+    cus_ch = '679'#input('\nEnter preffered Product ID: ')
     res = prod.find({"ID": {"$gt": 0}})
     for iu in res:
         if str(iu['ID']) == cus_ch:
             c = 1
-            qe = int(input("Enter Quantity: "))
+            qe = 2#int(input("Enter Quantity: "))
             if qe <= int(iu["Quantity"]):
                 prod.update_one({"ID": iu["ID"]}, {"$inc": {"Quantity": int(-qe)}})
                 cost = int(qe * int(iu["Price"]))
@@ -668,7 +668,7 @@ def loginc():
     global p
     print("\nLogin")
     print("~~~~~")
-    u_email = input("\nEnter your EmailId: ")
+    u_email = 'ambujupadhyay.55@gmail.com'
     n = u_email
     res = cust.find({"Email": u_email})
     a = list(res)
@@ -679,9 +679,9 @@ def loginc():
                 while True:
                     print("\n1. Enter your password")
                     print("2. Forget Password ?")
-                    loginc_ch = input("Select an option by selecting a number: ")
+                    loginc_ch = '1'
                     if loginc_ch == '1':
-                        pwd = input("\nEnter your password: ")
+                        pwd = 'qwerty'#input("\nEnter your password: ")
                         p = pwd
                         if i["Password"] == pwd:
                             print("\nSuccessfully Logged in.")
@@ -1301,7 +1301,7 @@ def customer():
         print("2. Sign In")
         print("3. Exit")
 
-        chc = input("Select an operation by entering a number: ")
+        chc = '2'
 
         if chc == '1':
             cust_sign_up()
@@ -1323,7 +1323,7 @@ def customer():
                     print("9. Account")
                     print("10. Exit")
 
-                    chc1 = input("Select an operation by entering a number: ")
+                    chc1 = '3'#input("Select an operation by entering a number: ")
 
                     if chc1 == '1':
                         view_prod()
@@ -1595,13 +1595,18 @@ def menu():
         print("2. Customer")
         print("3. Exit")
 
-        ch = input("Select a user by entering the number: ")
+        ch = '2'
 
         if ch == '1':
             admin()
 
         elif ch == '2':
             customer()
+            print("\n")
+            print("Software Shutting Down......\n")
+            print("Developed By:")
+            print("Ambuj \nKoushika \nVijaya \nYash")
+            exit()
 
         elif ch == '3':
             print("\n")
